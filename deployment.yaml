@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: time-app
+  template:
+    metadata:
+      labels:
+        app: time-app
+    spec:
+      securityContext:
+        runAsUser: 1000  # Non-root user
+        fsGroup: 1000
+      containers:
+      - name: time-app
+        image: erixdev/time-app-tet:latest  # Replace with your image
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: production
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 2
+          periodSeconds: 5

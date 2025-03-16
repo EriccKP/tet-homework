@@ -1,0 +1,15 @@
+{
+  "name": "tet-homework",
+  "version": "1.0.0",
+  "main": "time.js",
+  "scripts": {
+    "start": "node time.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "luxon": "^3.5.0"
+  }
+}
