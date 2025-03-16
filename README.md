@@ -1,4 +1,4 @@
-# Time App - Setup and Deployment Guide
+# Tet Homework - Setup and Deployment Guide
 
 A simple Node.js application displaying the current date and time with Kubernetes deployment manifests.
 
